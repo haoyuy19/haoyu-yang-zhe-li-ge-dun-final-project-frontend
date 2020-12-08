@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 var jo;
 export default function Job({ job }) {
     jo = job.how_to_apply;
+    var apply = job.how_to_apply.split("<p>");
+
     // console.log(jo);
 
     return (
@@ -16,15 +18,16 @@ export default function Job({ job }) {
         <div className="d-flex justify-content-between">
           <div>
             <Card.Title>
-            <a href={job.company_url}>{job.title} - <span className="text-muted font-weight-light">{job.company}</span></a>
+            <a href={job.company_url}>{job.title}</a>
             </Card.Title>
-            <Card.Subtitle className="text-muted mb-2">
+            <Card.Subtitle>
               {new Date(job.created_at).toLocaleDateString()}
+                - from <span className="Warning">{job.company}</span>
             </Card.Subtitle>
-            <Badge variant="primary" className="mr-2">{job.type}</Badge>
+            <Badge variant="success" className="mr-2">{job.type}</Badge>
             <Badge variant="primary">{job.location}</Badge>
             <div style = {{wordBreak: 'break-all'}}>
-               {job.how_to_apply}
+               {apply}
             </div>
           </div>
           <img height="60" alt={job.company} src={job.company_logo} />

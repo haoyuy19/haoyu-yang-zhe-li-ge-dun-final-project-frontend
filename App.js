@@ -14,7 +14,7 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            url: BASE_URL,
+
             jobs: [],
             description:"",
             location: "",
@@ -77,15 +77,15 @@ class App extends React.Component {
             <div>
         <form className="mb-4">
       <Form.Row className="align-items">
-        <Form.Group as={Col}>
-          <Form.Label>Description</Form.Label>
-          <Form.Control  onChange={this.myChangeHandlerfordes} name="description" type="text" />
-        </Form.Group>
-        <Form.Group as={Col}>
-          <Form.Label>Location</Form.Label>
-          <Form.Control onChange={this.myChangeHandlerforloc} name="location" type="text" />
-        </Form.Group>
-        <button width = "50000px" type="button" class="btn btn-primary" onClick={this.handleClick}>
+        <Col sm = {5} className = "my-1">
+          <Form.Label style={{ marginLeft: '15px' }}>Description</Form.Label>
+          <Form.Control  style={{ marginLeft: '15px' }} placeholder = "description" onChange={this.myChangeHandlerfordes} name="description" type="text" />
+          </Col>
+          <Col sm = {5} className = "my-1">
+          <Form.Label style={{ marginLeft: '15px' }}>Location</Form.Label>
+          <Form.Control style={{ marginLeft: '15px' }} onChange={this.myChangeHandlerforloc} name="location" type="text" />
+        </Col>
+        <button style={{ marginLeft: '15px' }} type="button" class="btn btn-primary" onClick={this.handleClick}>
                     Search
                 </button>
         {/* <Form.Group as={Col} xs="auto" className="ml-2">

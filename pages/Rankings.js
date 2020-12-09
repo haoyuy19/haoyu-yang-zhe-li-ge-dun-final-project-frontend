@@ -16,7 +16,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://better.com/'>
                         <Image
                           class='media-object'
                           src='/1.png'
@@ -35,7 +35,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.doordash.com/en-US'>
                         <Image
                           class='media-object'
                           src='/2.png'
@@ -54,7 +54,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://robinhood.com/us/en/'>
                         <Image
                           class='media-object'
                           src='/3.png'
@@ -73,7 +73,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.samsara.com/'>
                         <Image
                           class='media-object'
                           src='/4.png'
@@ -92,7 +92,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://databricks.com/'>
                         <Image
                           class='media-object'
                           src='/5.png'
@@ -111,7 +111,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.outreach.io/'>
                         <Image
                           class='media-object'
                           src='/6.png'
@@ -130,7 +130,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.brooklinen.com/'>
                         <Image
                           class='media-object'
                           src='/7.png'
@@ -149,7 +149,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.attentivemobile.com/'>
                         <Image
                           class='media-object'
                           src='/8.png'
@@ -168,7 +168,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.loom.com/'>
                         <Image
                           class='media-object'
                           src='/9.png'
@@ -187,7 +187,7 @@ const Register = () => {
                 <div class='col-md-6'>
                   <div class='media'>
                     <div class='media-left'>
-                      <a href='#'>
+                      <a href='https://www.verkada.com/'>
                         <Image
                           class='media-object'
                           src='/10.png'

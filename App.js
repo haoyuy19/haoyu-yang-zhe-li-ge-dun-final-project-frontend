@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
-import { Form, Col } from 'react-bootstrap'
+import { Form, Col, Pagination } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Job from './Job'
 import Axios from 'axios'
 
 
 var des;
-var loc;
-const BASE_URL = 'http://localhost:8010/proxy/positions.json'
+var loc;;
+var curPage;
+const BASE_URL = 'http://localhost:8010/proxy/'
 var real = 'jobs.github.com/positions.json'
+var url = BASE_URL;
 //positions?description=python&location=new+york
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-
             jobs: [],
             description:"",
             location: "",
+            page: 1,
+            hasNextPage:true,
         }
         this.componentWillMount = this.componentWillMount.bind(this);
         
@@ -34,16 +37,92 @@ class App extends React.Component {
         this.setState({ location: loc });
     };
 
+    clickPagePlus = () => {
+        url = BASE_URL;
+        console.log(this.state.page);
+        if (this.state.jobs != null && this.state.jobs.length > 0) {
+            var curpage = this.state.page + 1;
+            console.log(curpage);
+            this.setState({page : curpage})
+            console.log(this.state.page);
+            if (loc != null) {
+                this.setState({ location: loc });
+                url += "&location=" + this.state.location
+            }
+            if (des != null) {
+                // console.log(des);
+                this.setState({ description: des });
+                url += "&description=" + this.state.description
+                // console.log(this.state.description);
+            }
+            url += "&page=" + curpage;
+            console.log(url);
+            Axios.get(url)
+        
+            .then(response => {
+                this.setState({jobs:response.data});
+                if (response.data != null && response.data.length > 0) {
+                    this.setState({hasNextPage : true})
+                } else {
+                    this.setState({hasNextPage : false})
+                }
+                // console.log(response.data);
+            })
+            
+        } 
+        
+        
+    }
+
+    clickPageMinus = () => {
+        url = BASE_URL;
+        if (this.state.page > 1) {
+            var curpage = this.state.page - 1;
+            this.setState({page : curpage})
+            if (loc != null) {
+                this.setState({ 
+                    location: loc,
+                    page:1
+                });
+                url += "&location=" + this.state.location
+            }
+            if (des != null) {
+                // console.log(des);
+                this.setState({ 
+                    description: des,
+                    page:1
+                });
+                url += "&description=" + this.state.description
+                // console.log(this.state.description);
+            }
+            url += "&page=" + curpage;
+            console.log(url);
+            Axios.get(url)
+        
+            .then(response => {
+                this.setState({jobs:response.data});
+                this.setState({hasNextPage:true});
+                // console.log(response.data);
+            })
+        }
+    }
+
     handleClick = () => {
-        var url = BASE_URL;
+        url = BASE_URL;
         
         
         if (loc != null) {
-            this.setState({ location: loc });
+            this.setState({ 
+                location: loc,
+                page:1
+            });
         }
         if (des != null) {
             // console.log(des);
-            this.setState({ description: des });
+            this.setState({ 
+                description: des,
+                page:1
+            });
             // console.log(this.state.description);
         }
         url += "&description=" + this.state.description + "&location=" + this.state.location
@@ -55,7 +134,8 @@ class App extends React.Component {
             this.setState({jobs:response.data});
             // console.log(response.data);
         })
-        
+
+    
 
     }
     componentWillMount() {
@@ -88,19 +168,20 @@ class App extends React.Component {
         <button style={{ marginLeft: '15px' }} type="button" class="btn btn-primary" onClick={this.handleClick}>
                     Search
                 </button>
-        {/* <Form.Group as={Col} xs="auto" className="ml-2">
-          <Form.Check onChange={onParamChange} value={params.full_time} name="full_time" id="full-time" label="Only Full Time" type="checkbox" className="mb-2" />
-        </Form.Group> */}
       </Form.Row>
       
     </form>
-            {/* <Pagination page={page} setPage={setPage}></Pagination> */}
+            <Pagination>
+            {this.state.page > 1 && <Pagination.Prev onClick = {this.clickPageMinus}>{this.state.page-1}</Pagination.Prev>}
+            <Pagination.Item active>{this.state.page}</Pagination.Item>
+            {this.state.hasNextPage && <Pagination.Next onClick = {this.clickPagePlus}>{this.state.page+1}</Pagination.Next>}
+            </Pagination>
             {this.state.jobs.map(
                 (job) => {
                     return <Job key={job.id} job={job} />
                 }
             )}
-            {/* <Pagination page={page} setPage={setPage}></Pagination> */}
+            <Pagination></Pagination>
             </div>
             
             )

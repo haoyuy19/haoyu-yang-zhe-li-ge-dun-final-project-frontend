@@ -11,6 +11,11 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <ul>
           <li>
+            <Link href='/LandingPage' className={styles.btnlight}>
+              <a>FindUAJob</a>
+            </Link>
+          </li>
+          <li>
             <Link href='/AllJobs' className={styles.btnlight}>
               <a>All Jobs</a>
             </Link>

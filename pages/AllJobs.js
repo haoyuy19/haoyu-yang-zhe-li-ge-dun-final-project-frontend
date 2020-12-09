@@ -9,7 +9,9 @@ import styles from '../components/AllJobs.module.css';
 var des;
 var loc;
 var curPage;
-const BASE_URL = 'http://localhost:8010/proxy/';
+const BASE_URL =
+  'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?';
+// const BASE_URL = 'http://localhost:8010/proxy/';
 var real = 'jobs.github.com/positions.json';
 var url = BASE_URL;
 //positions?description=python&location=new+york
@@ -145,60 +147,60 @@ class AllJobs extends React.Component {
   render() {
     console.log('Again');
     return (
-      <div className={styles.container}>
-        <Navbar />
-        <h3>Placeholder for navbar</h3>
-
-        <form className='mb-4'>
-          <Form.Row className='align-items'>
-            <Col sm={5} className='my-1'>
-              <Form.Label style={{ marginLeft: '15px' }}>
-                Description
-              </Form.Label>
-              <Form.Control
+      <div>
+        <div className={styles.container}>
+          <Navbar />
+          <form className='mb-4'>
+            <Form.Row className='align-items'>
+              <Col sm={5} className='my-1'>
+                <Form.Label style={{ marginLeft: '15px' }}>
+                  Description
+                </Form.Label>
+                <Form.Control
+                  style={{ marginLeft: '15px' }}
+                  placeholder='description'
+                  onChange={this.myChangeHandlerfordes}
+                  name='description'
+                  type='text'
+                />
+              </Col>
+              <Col sm={5} className='my-1'>
+                <Form.Label style={{ marginLeft: '15px' }}>Location</Form.Label>
+                <Form.Control
+                  style={{ marginLeft: '15px' }}
+                  onChange={this.myChangeHandlerforloc}
+                  name='location'
+                  type='text'
+                />
+              </Col>
+              <button
                 style={{ marginLeft: '15px' }}
-                placeholder='description'
-                onChange={this.myChangeHandlerfordes}
-                name='description'
-                type='text'
-              />
-            </Col>
-            <Col sm={5} className='my-1'>
-              <Form.Label style={{ marginLeft: '15px' }}>Location</Form.Label>
-              <Form.Control
-                style={{ marginLeft: '15px' }}
-                onChange={this.myChangeHandlerforloc}
-                name='location'
-                type='text'
-              />
-            </Col>
-            <button
-              style={{ marginLeft: '15px' }}
-              type='button'
-              class='btn btn-primary'
-              onClick={this.handleClick}
-            >
-              Search
-            </button>
-          </Form.Row>
-        </form>
-        <Pagination>
-          {this.state.page > 1 && (
-            <Pagination.Prev onClick={this.clickPageMinus}>
-              {this.state.page - 1}
-            </Pagination.Prev>
-          )}
-          <Pagination.Item active>{this.state.page}</Pagination.Item>
-          {this.state.hasNextPage && (
-            <Pagination.Next onClick={this.clickPagePlus}>
-              {this.state.page + 1}
-            </Pagination.Next>
-          )}
-        </Pagination>
-        {this.state.jobs.map(job => {
-          return <Job key={job.id} job={job} />;
-        })}
-        <Pagination></Pagination>
+                type='button'
+                class='btn btn-primary'
+                onClick={this.handleClick}
+              >
+                Search
+              </button>
+            </Form.Row>
+          </form>
+          <Pagination>
+            {this.state.page > 1 && (
+              <Pagination.Prev onClick={this.clickPageMinus}>
+                {this.state.page - 1}
+              </Pagination.Prev>
+            )}
+            <Pagination.Item active>{this.state.page}</Pagination.Item>
+            {this.state.hasNextPage && (
+              <Pagination.Next onClick={this.clickPagePlus}>
+                {this.state.page + 1}
+              </Pagination.Next>
+            )}
+          </Pagination>
+          {this.state.jobs.map(job => {
+            return <Job key={job.id} job={job} />;
+          })}
+          <Pagination></Pagination>
+        </div>
       </div>
     );
   }

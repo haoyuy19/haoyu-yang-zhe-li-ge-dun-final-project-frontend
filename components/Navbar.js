@@ -12,7 +12,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link href='/LandingPage' className={styles.btnlight}>
-              <a>FindUAJob</a>
+              <a>Main Page</a>
             </Link>
           </li>
           <li>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Col, Pagination } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Job from '../Job';
+import Job from './Job';
 import Axios from 'axios';
 import styles from '../components/AllJobs.module.css';
 
@@ -9,10 +9,11 @@ var des;
 var loc;
 var curPage;
 const BASE_URL =
-  'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?';
+'https://ancient-chamber-73045.herokuapp.com/https://jobs.github.com/positions.json?';
 // const BASE_URL = 'http://localhost:8010/proxy/';
 var real = 'jobs.github.com/positions.json';
 var url = BASE_URL;
+var length = 0;
 //positions?description=python&location=new+york
 class JobSearch extends React.Component {
   constructor() {
@@ -70,6 +71,38 @@ class JobSearch extends React.Component {
     }
   };
 
+  clicktoOne = () => {
+    url = BASE_URL;
+    if (this.state.page > 1) {
+      var curpage = this.state.page - 1;
+      this.setState({ page: curpage });
+      if (loc != null) {
+        this.setState({
+          location: loc,
+          page: 1
+        });
+        url += '&location=' + this.state.location;
+      }
+      console.log(des);
+      if (des != null) {
+        // console.log(des);
+        this.setState({
+          description: des,
+          page: 1
+        });
+        url += '&description=' + this.state.description;
+      }
+      url += '&page=' + 1;
+      console.log(url);
+      Axios.get(url).then(response => {
+        this.setState({ jobs: response.data });
+        this.setState({ hasNextPage: true });
+        // console.log(response.data);
+      });
+    }
+
+  }
+
   clickPageMinus = () => {
     url = BASE_URL;
     if (this.state.page > 1) {
@@ -82,6 +115,7 @@ class JobSearch extends React.Component {
         });
         url += '&location=' + this.state.location;
       }
+      console.log(des);
       if (des != null) {
         // console.log(des);
         this.setState({
@@ -89,7 +123,7 @@ class JobSearch extends React.Component {
           page: 1
         });
         url += '&description=' + this.state.description;
-        // console.log(this.state.description);
+         console.log("HHHHHHH");
       }
       url += '&page=' + curpage;
       console.log(url);
@@ -139,23 +173,22 @@ class JobSearch extends React.Component {
 
     Axios.get(url).then(response => {
       this.setState({ jobs: response.data });
-      // console.log(response.data);
+      
     });
   }
 
   render() {
     console.log('Again');
+    length = 0;
+    length = this.state.jobs.length;
     return (
       <div>
         {/* <div className={styles.container}> */}
         <div className={styles.landing}>
-          <div className={styles.darkoverlay}>
-            <form className='mb-4'>
+          <div className={styles.darkoverlay} style = {{marginTop: '100px'}}>
+            <Form className='mb-4' style = {{margin:'auto', width: '80%'}}>
               <Form.Row className='align-items'>
                 <Col sm={5} className='my-1'>
-                  <Form.Label style={{ marginLeft: '15px' }}>
-                    Description
-                  </Form.Label>
                   <Form.Control
                     style={{ marginLeft: '15px' }}
                     placeholder='description'
@@ -165,11 +198,9 @@ class JobSearch extends React.Component {
                   />
                 </Col>
                 <Col sm={5} className='my-1'>
-                  <Form.Label style={{ marginLeft: '15px' }}>
-                    Location
-                  </Form.Label>
                   <Form.Control
                     style={{ marginLeft: '15px' }}
+                    placeholder='location'
                     onChange={this.myChangeHandlerforloc}
                     name='location'
                     type='text'
@@ -184,24 +215,50 @@ class JobSearch extends React.Component {
                   Search
                 </button>
               </Form.Row>
-            </form>
-            <Pagination>
+            </Form>
+            {/* {length == 0 && (this.state.page > 1  || (des == null && loc == null)) && <h1 style = {{color: 'white', margin:'auto', width: '50%'}}>No Results Found</h1>} */}
+            {/* {this.state.page > 2 && <Pagination.First onClick = {this.clicktoOne()}>1</Pagination.First>} */}
+            {length > 0 && <Pagination style = {{margin:'auto', width: '80%'}}>
+            {/* <Pagination.First onClick = {this.clicktoOne()} />  */}
+            
+              {/* <Pagination.Item>{1}</Pagination.Item> */}
               {this.state.page > 1 && (
                 <Pagination.Prev onClick={this.clickPageMinus}>
                   {this.state.page - 1}
                 </Pagination.Prev>
               )}
+              
               <Pagination.Item active>{this.state.page}</Pagination.Item>
-              {this.state.hasNextPage && (
+              {length == 50 && this.state.hasNextPage &&  (
                 <Pagination.Next onClick={this.clickPagePlus}>
                   {this.state.page + 1}
                 </Pagination.Next>
               )}
-            </Pagination>
+            </Pagination>}
+            <br></br>
+            <div style = {{margin:'auto', width: '80%'}}>
             {this.state.jobs.map(job => {
               return <Job key={job.id} job={job} />;
             })}
-            <Pagination></Pagination>
+            </div>
+            <br></br>
+            {length > 0 && <Pagination style = {{margin:'auto', width: '80%'}}>
+            {this.state.page > 2 && <Pagination.First>1</Pagination.First>}
+              {/* <Pagination.Item>{1}</Pagination.Item> */}
+              {this.state.page > 1 && (
+                <Pagination.Prev onClick={this.clickPageMinus}>
+                  {this.state.page - 1}
+                </Pagination.Prev>
+              )}
+              
+              <Pagination.Item active>{this.state.page}</Pagination.Item>
+              {length == 50 && this.state.hasNextPage &&  (
+                <Pagination.Next onClick={this.clickPagePlus}>
+                  {this.state.page + 1}
+                </Pagination.Next>
+              )}
+  
+            </Pagination>}
           </div>
         </div>
       </div>

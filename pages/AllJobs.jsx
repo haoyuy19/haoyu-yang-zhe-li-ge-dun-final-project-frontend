@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Col, Pagination } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Job from '../Job';
+import Job from '../components/Job';
 import Axios from 'axios';
 import Navbar from '../components/Navbar';
 import JobSearch from '../components/JobSearch';

@@ -16,15 +16,12 @@ const EmpRankings = () => {
       },
       { headers: { 'x-auth-token': window.localStorage.getItem('token') } }
     )
-      .then(function () {
-        Axios.get(HOST, {
-          headers: { 'x-auth-token': window.localStorage.getItem('token') }
-        });
+      .then(function (response) {
+        window.location.href = '/Stat';
       })
       .catch(err => {
         console.log(err.response);
       });
-    window.location.href = '/Stat';
   }
   return (
     <div>

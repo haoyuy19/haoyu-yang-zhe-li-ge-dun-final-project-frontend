@@ -16,38 +16,12 @@ const Rankings = () => {
       },
       { headers: { 'x-auth-token': window.localStorage.getItem('token') } }
     )
-      .then(function () {
-        Axios.get(HOST, {
-          headers: { 'x-auth-token': window.localStorage.getItem('token') }
-        });
+      .then(function (response) {
+        window.location.href = '/Stat';
       })
       .catch(err => {
         console.log(err.response);
       });
-    window.location.href = '/Stat';
-
-    // let requestHeaders: any = {
-    //   'Content-Type': 'application/json',
-    //   'x-auth-token': window.localStorage.getItem('token')
-    // };
-
-    // var data: any = {
-    //   company: com
-    // };
-    // fetch(HOST, {
-    //   mode: 'cors',
-    //   method: 'PUT',
-    //   headers: requestHeaders,
-    //   body: data
-    // })
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     console.log('res ->> ', res);
-    //     if (res.msg) {
-    //       alert(res.msg);
-    //     }
-    //     Router.push('/Stat');
-    //   });
   }
   return (
     <div>

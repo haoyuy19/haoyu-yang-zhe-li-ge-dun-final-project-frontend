@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import styles from "../components/profile.module.css";
 import Router from "next/router";
 import { url } from "./../components/config";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const index = () => {
   const [info, setinfo] = useState<any>({
@@ -101,7 +102,7 @@ const index = () => {
           </p>
 
           <p>
-            <button onClick={submit}>submit</button>
+            <button className='btn btn-primary' onClick={submit}>submit</button>
           </p>
         </div>
       </div>

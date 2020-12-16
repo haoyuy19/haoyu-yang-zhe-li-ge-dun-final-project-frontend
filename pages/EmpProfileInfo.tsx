@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import styles from "../components/profile.module.css";
 import Router from "next/router";
 import { url } from "../components/config";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Index = () => {
   const [info, setinfo] = useState<any>({
@@ -71,13 +72,14 @@ const Index = () => {
       <div className={styles.bg}>
         <div className={styles["bg-card"]}>
           <h1>Employer Profile</h1>
-          <p style={{ textAlign: "right" }}>
-            <button onClick={toEdit}>Add Or Update Profile</button>
+          
+          <p style={{ textAlign: "right", fontWeight:'bold',fontSize: 'x-large' }}>
+            <button className='btn btn-primary' onClick={toEdit}>Add Or Update Profile</button>
             &nbsp;
-            <button onClick={del}>deleted Profile</button>
+            <button  className='btn btn-primary' onClick={del}>deleted Profile</button>
           </p>
-          <p>company: {info.company}</p>
-          <p>title: {info.title}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>company:  {info.company}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>title:   {info.title}</p>
         </div>
       </div>
     </>

@@ -68,8 +68,10 @@ class Stat extends React.Component {
       <div>
         <br></br>
         <br></br>
+        <h3 style = {{margin:'auto', width: '20%', }}>You have voted</h3>
+        <br></br>
         <div className='d-flex justify-content-center'>
-          <h3>You have voted</h3>
+          
           <Table className='table table-sm' striped bordered hover>
             <thead className='thead-dark'>
               <tr>

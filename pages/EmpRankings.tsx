@@ -41,7 +41,7 @@ const EmpRankings = () => {
                 <div className='col-md-6'>
                   <div className='media'>
                     <div className='media-left'>
-                      <a href=' '>
+                      <a href='https://better.com/'>
                         <Image
                           className='media-object'
                           src='/1.png'
@@ -49,7 +49,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -76,7 +76,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -103,7 +103,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -130,7 +130,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -157,7 +157,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -184,7 +184,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -213,7 +213,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -240,7 +240,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -267,7 +267,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>
@@ -294,7 +294,7 @@ const EmpRankings = () => {
                           width={100}
                           height={100}
                         />
-                      </a >
+                      </a>
                     </div>
                     <div className='media-body'>
                       <div>

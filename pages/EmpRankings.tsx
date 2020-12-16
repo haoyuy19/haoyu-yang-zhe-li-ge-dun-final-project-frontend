@@ -16,9 +16,11 @@ const EmpRankings = () => {
       { headers: { 'x-auth-token': window.localStorage.getItem('token') } }
     )
       .then(function () {
-        window.location.href = '/Stat';
+        window.open('/Stat', '_blank')
+        //window.location.href = '/Stat';
       })
       .catch(err => {
+        
         console.log(err.response);
       });
   }
@@ -30,6 +32,7 @@ const EmpRankings = () => {
         <div className={styles.darkoverlay}>
           <div className={styles.landinginner}>
             <h1>Which one will be the next Tech giant?</h1>
+            <p>Click on any company name to vote for the company!</p>
             <br></br>
             <br></br>
             <div className='container'>

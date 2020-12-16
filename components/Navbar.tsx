@@ -86,17 +86,18 @@ const Navbar = () => {
           {user.email && (
             <>
               <li>
-                <Link href="/JobList">JobList</Link>
+                <Link href="/JobList">Premium Jobs</Link>
               </li>
               {user.isEmployer && (
                 <li>
-                  <Link href="/PostJob">PostJob</Link>
+                  <Link href="/PostJob">Post a Job</Link>
                 </li>
               )}
               <li onClick={topage}>
                 <a href="javascript:;">
-                  <span>hello ,</span>
+                  
                   <span>{user.email} </span>
+                  <span>'s Profile</span>
                 </a>
               </li>
               <li onClick={logout}>

@@ -228,25 +228,7 @@ class JobSearch extends React.Component {
 
             {/* {length == 0 && (this.state.page > 1  || (des == null && loc == null)) && <h1 style = {{color: 'white', margin:'auto', width: '50%'}}>No Results Found</h1>} */}
             {/* {this.state.page > 2 && <Pagination.First onClick = {this.clicktoOne()}>1</Pagination.First>} */}
-            {length > 0 && (
-              <Pagination style={{ margin: "auto", width: "80%" }}>
-                {/* <Pagination.First onClick = {this.clicktoOne()} />  */}
-
-                {/* <Pagination.Item>{1}</Pagination.Item> */}
-                {this.state.page > 1 && (
-                  <Pagination.Prev onClick={this.clickPageMinus}>
-                    {this.state.page - 1}
-                  </Pagination.Prev>
-                )}
-
-                <Pagination.Item active>{this.state.page}</Pagination.Item>
-                {length == 50 && this.state.hasNextPage && (
-                  <Pagination.Next onClick={this.clickPagePlus}>
-                    {this.state.page + 1}
-                  </Pagination.Next>
-                )}
-              </Pagination>
-            )}
+            
             <br></br>
             <div style={{ margin: "auto", width: "80%" }}>
               {this.state.jobs.map((job) => {

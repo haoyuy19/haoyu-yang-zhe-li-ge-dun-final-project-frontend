@@ -79,8 +79,8 @@ const index = () => {
       <Navbar></Navbar>
       <div className={styles.bg}>
         <div className={styles["bg-card"]}>
-          <p>
-            company:
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
+            company: 
             <input
               type="text"
               value={info.company}
@@ -89,8 +89,8 @@ const index = () => {
               }
             />
           </p>
-          <p>
-            title:
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
+            title: 
             <input
               type="text"
               value={info.title}

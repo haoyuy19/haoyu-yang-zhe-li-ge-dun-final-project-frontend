@@ -16,7 +16,7 @@ const EmpRankings = () => {
       },
       { headers: { 'x-auth-token': window.localStorage.getItem('token') } }
     )
-      .then(function (response) {
+      .then(function () {
         window.location.href = '/Stat';
       })
       .catch(err => {

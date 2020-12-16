@@ -16,7 +16,7 @@ const Rankings = () => {
       },
       { headers: { 'x-auth-token': window.localStorage.getItem('token') } }
     )
-      .then(function (response) {
+      .then(function () {
         window.location.href = '/Stat';
       })
       .catch(err => {

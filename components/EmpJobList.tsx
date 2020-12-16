@@ -52,12 +52,12 @@ const index = () => {
       <table className={styles["tables-job"]}>
         <thead>
           <tr>
-            <th>jobtitle</th>
-            <th>summary</th>
-            <th>responsibilites</th>
-            <th>salary</th>
-            <th>skills</th>
-            <th>date</th>
+            <th>Job title</th>
+            <th>Summary</th>
+            <th>Responsibilites</th>
+            <th>Salary</th>
+            <th>Skills</th>
+            <th>Date posted</th>
           </tr>
         </thead>
         <tbody>
@@ -70,9 +70,9 @@ const index = () => {
               <td>{item.responsibilites}</td>
               <td>{item.salary}</td>
               <td>{item.skills}</td>
-              <td>{item.date}</td>
+              <td>{item.date.slice(0,10)}</td>
               <td>
-                <button className='btn btn-primary' onClick={() => deleteItem(item)}>deleted</button>
+                <button className='btn btn-primary' onClick={() => deleteItem(item)}>Delete</button>
               </td>
             </tr>
           ))}

@@ -76,10 +76,10 @@ const Index = () => {
           <p style={{ textAlign: "right", fontWeight:'bold',fontSize: 'x-large' }}>
             <button className='btn btn-primary' onClick={toEdit}>Add Or Update Profile</button>
             &nbsp;
-            <button  className='btn btn-primary' onClick={del}>deleted Profile</button>
+            <button  className='btn btn-primary' onClick={del}>Delete Profile</button>
           </p>
-          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>company:  {info.company}</p>
-          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>title:   {info.title}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>Company:  {info.company}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>Title:   {info.title}</p>
         </div>
       </div>
     </>

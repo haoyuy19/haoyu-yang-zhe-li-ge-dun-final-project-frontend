@@ -81,7 +81,7 @@ const index = () => {
       <div className={styles.bg}>
         <div className={styles["bg-card"]}>
           <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
-  {}company:{"   " }{"   " } 
+  {}company:{"   " }
             <input
               type="text"
               value={info.company}
@@ -91,7 +91,7 @@ const index = () => {
             />
           </p>
           <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
-            title: {"   " } {"   " } 
+            title: {"   " }
             <input
               type="text"
               value={info.title}

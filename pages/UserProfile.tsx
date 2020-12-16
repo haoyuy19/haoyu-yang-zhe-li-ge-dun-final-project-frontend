@@ -35,7 +35,7 @@ const UserProfile = () => {
       .then((res) => {
         console.log("res ->> ", res);
         if (!res.msg) {
-          var obj = { ...res, skills: res.skills.join(",") };
+          var obj = { ...res };
           setinfo(obj);
         }
       });

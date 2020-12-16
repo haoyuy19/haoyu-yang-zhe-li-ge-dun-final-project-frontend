@@ -33,7 +33,7 @@ const index = () => {
       .then((res) => {
         console.log("res ->> ", res);
         if (!res.msg) {
-          var obj = { ...res, title: res.title.join(",") };
+          var obj = { ...res};
           setinfo(obj);
         }
       });

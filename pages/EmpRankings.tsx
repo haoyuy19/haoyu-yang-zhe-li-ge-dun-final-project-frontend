@@ -4,13 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../components/Register.module.css';
 import Navbar from '../components/Navbar';
 import Axios from 'axios';
-
-const HOST = 'http://localhost:5000/api/rankByRecruiter';
+import { url } from '../components/config';
 
 const EmpRankings = () => {
   function onclick(com: String) {
     Axios.put(
-      HOST,
+      url + '/api/rankByRecruiter',
       {
         company: com
       },

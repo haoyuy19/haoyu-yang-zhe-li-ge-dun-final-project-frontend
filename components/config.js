@@ -1,1 +1,1 @@
-export var url = `http://localhost:5000`
+export var url = `https://hyy-zl-gd-backend.herokuapp.com`;

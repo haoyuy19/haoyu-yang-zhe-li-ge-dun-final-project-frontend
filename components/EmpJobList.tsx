@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./profile.module.css";
 import { url } from "./config";
 import Link from "next/link";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const index = () => {
   const [list, setlist] = useState<any>([]);
@@ -71,7 +72,7 @@ const index = () => {
               <td>{item.skills}</td>
               <td>{item.date}</td>
               <td>
-                <button onClick={() => deleteItem(item)}>deleted</button>
+                <button className='btn btn-primary' onClick={() => deleteItem(item)}>deleted</button>
               </td>
             </tr>
           ))}

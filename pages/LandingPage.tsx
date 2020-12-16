@@ -29,12 +29,16 @@ const LandingPage = () => {
         <div className={styles.darkoverlay}>
           <div className={styles.landinginner}>
             <h1 className={styles.xlarge}>Searching For Jobs</h1>
-            <p className={styles.lead}>Search For Your Dream Jobs!</p>
+            <h1 style={{ fontWeight:'bold',fontSize: 'x-large' }} className={styles.lead}>Search For Your Dream Jobs!</h1>
+            <p style={{ fontWeight:'bold',fontSize: 'x-large' }}>Register as regular user to search jobs worldwide</p>
+                <p style={{ fontWeight:'bold',fontSize: 'x-large' }}>Register as employer user to post jobs on our website</p>
+                <p style={{ fontWeight:'bold',fontSize: 'x-large' }}>Or proceed as anonymous</p>
 
             {!islogin && (
               <div className={styles.buttons}>
-                <Link href="/Register">Sign Up</Link>
+                <Link  href="/Register" >Sign Up</Link>
                 <Link href="/Login">Login</Link>
+      
               </div>
             )}
 

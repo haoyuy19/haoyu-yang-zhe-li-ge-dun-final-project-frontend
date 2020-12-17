@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import styles from "../components/profile.module.css";
 import Router from "next/router";
 import { url } from "../components/config";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const UserProfile = () => {
   const [info, setinfo] = useState<any>({
@@ -74,14 +75,14 @@ const UserProfile = () => {
         <div className={styles["bg-card"]}>
           <h1>User Profile</h1>
           <p style={{ textAlign: "right" }}>
-            <button onClick={toEdit}>Add Or Update Profile</button>
+            <button className="btn btn-primary" onClick={toEdit}>Add Or Update Profile</button>
             &nbsp;
-            <button onClick={del}>deleted Profile</button>
+            <button className="btn btn-primary" onClick={del}>deleted Profile</button>
           </p>
-          <p>location: {info.location}</p>
-          <p>skills: {info.skills}</p>
-          <p>bio: {info.bio}</p>
-          <p>githubname: {info.githubusername}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>Location: {info.location}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>Skills: {info.skills}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>Bio: {info.bio}</p>
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>Github account: {info.githubusername}</p>
         </div>
       </div>
     </>

@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import styles from "../components/profile.module.css";
 import Router from "next/router";
 import { url } from "./../components/config";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const UserProfile = () => {
   const [info, setinfo] = useState<any>({
@@ -81,8 +82,8 @@ const UserProfile = () => {
       <Navbar></Navbar>
       <div className={styles.bg}>
         <div className={styles["bg-card"]}>
-          <p>
-            location:
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
+            Location:{' '}
             <input
               type="text"
               value={info.location}
@@ -91,8 +92,8 @@ const UserProfile = () => {
               }
             />
           </p>
-          <p>
-            skills:
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
+            Skills: {' '}
             <input
               type="text"
               value={info.skills}
@@ -101,8 +102,8 @@ const UserProfile = () => {
               }
             />
           </p>
-          <p>
-            bio:
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
+            Bio: {' '}
             <input
               type="text"
               value={info.bio}
@@ -111,8 +112,8 @@ const UserProfile = () => {
               }
             />
           </p>
-          <p>
-            githubname:
+          <p style = {{fontWeight:'bold',fontSize: 'x-large' }}>
+            Github account:{' '}
             <input
               type="text"
               value={info.githubusername}
@@ -122,7 +123,7 @@ const UserProfile = () => {
             />
           </p>
           <p>
-            <button onClick={submit}>submit</button>
+            <button onClick={submit} className="btn btn-primary">submit</button>
           </p>
         </div>
       </div>
